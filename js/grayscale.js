@@ -21,7 +21,7 @@ google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
   var mapOptions = {
-    zoom: 14,
+    zoom: 13,
 
     center: new google.maps.LatLng(46.187145, 6.140515),
     disableDefaultUI: true,
@@ -80,10 +80,7 @@ function init() {
   };
 
   var mapElement = document.getElementById('map');
-
   var map = new google.maps.Map(mapElement, mapOptions);
-
-  var image = 'img/map-marker.png';
   var myLatLng = new google.maps.LatLng(46.187145, 6.140515);
   var beachMarker = new google.maps.Marker({
     position: myLatLng,
