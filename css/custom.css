@@ -71,11 +71,8 @@ body {
     color: #000;
 }
 
-.nav-center {
 
-}
-
-@media (min-width: 768px) {
+@media (min-width: 700px) {
     .navbar .navbar-nav {
         display: inline-block;
         float: none;
@@ -108,4 +105,5 @@ footer {
     margin-top: 80px;
     padding: 20px;
     background-color: #dfdfdf;
+    border-top: solid #000 1px;
 }
