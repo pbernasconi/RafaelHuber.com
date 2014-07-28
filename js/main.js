@@ -17,6 +17,91 @@ $('#nav .navbar-nav li>a').click(function () {
 });
 
 
+$(function () {
+  $('.nav a').on('click', function () {
+    if ($('.navbar-toggle').css('display') != 'none') {
+      $(".navbar-toggle").trigger("click");
+    }
+  });
+});
+
+
+var app = angular.module('app', []);
+
+app.controller('MainCtrl', function ($scope, $http) {
+
+  $scope.emailForm = {
+    name: '',
+    email: '',
+    telephone: '',
+    message: ''
+  };
+
+  $scope.submitForm = function (form) {
+
+    var data = {
+      'key': 'H8T3fhgfJBYJHFwSp8oSTQ',
+      'message': {
+        'from_email': form.email,
+        'from_name': form.name,
+        'to': [
+          {
+            'email': 'rafael_huber@yahoo.com',
+            'name': 'Rafael Huber',
+            'type': 'to'
+          }
+        ],
+        'subject': 'Email Enquiry form RaphaelHuber.com',
+        'html': '<p>' + form.message + '</p></p><br><br>' + form.name + '<br>' + form.telephone
+      }
+    };
+
+    $http.post('https://mandrillapp.com/api/1.0/messages/send.json', data).success(function (success) {
+      console.log(success)
+    })
+
+  }
+
+
+});
+
+$('#sendEmail').click(function () {
+
+  console.log('email');
+
+  /*
+   $.ajax({
+   type: "POST",
+   url: "https://mandrillapp.com/api/1.0/messages/send.json",
+   data: {
+   'key': 'H8T3fhgfJBYJHFwSp8oSTQ',
+   'message': {
+   'from_email': 'YOUR@EMAIL.HERE',
+   'to': [
+   {
+   'email': 'RECIPIENT_NO_1@EMAIL.HERE',
+   'name': 'RECIPIENT NAME (OPTIONAL)',
+   'type': 'to'
+   },
+   {
+   'email': 'RECIPIENT_NO_2@EMAIL.HERE',
+   'name': 'ANOTHER RECIPIENT NAME (OPTIONAL)',
+   'type': 'to'
+   }
+   ],
+   'autotext': 'true',
+   'subject': 'YOUR SUBJECT HERE!',
+   'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!'
+   }
+   }
+   }).done(function (response) {
+   console.log(response); // if you're into that sorta thing
+   });
+
+   */
+});
+
+
 google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
