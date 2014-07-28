@@ -127,3 +127,20 @@ footer {
     padding: 30px;
     background-color: #384042;
 }
+
+.padding-top {
+    padding-top: 10px;
+}
+
+.btn-empty {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.language-icon {
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    width: auto;
+}
