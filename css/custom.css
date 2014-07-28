@@ -138,6 +138,12 @@ footer {
     margin: 0;
 }
 
+
+.button-download {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
 .language-icon {
     padding: 0;
     margin: 0;
